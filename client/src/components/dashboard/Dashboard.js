@@ -1,16 +1,29 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCurrentProfile } from '../../actions/profileActions';
 
-const Dashboard = props => {
+const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
+    useEffect(()=>{
+        getCurrentProfile()
+    }, [getCurrentProfile]);
+
     return (
         <div>
             Dashboard
         </div>
     )
-}
+};
 
-Dashboard.propTypes = {
+Dashboard.propTypes ={
+    getCurrentProfile: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    // profile: PropTypes.object.isRequired,
+    // deleteAccount: PropTypes.func.isRequired
+};
 
-}
-
-export default Dashboard;
+const mapStateToProps = state =>({
+    auth: state.auth,
+    profile: state.profile
+});
+export default connect(mapStateToProps, { getCurrentProfile})(Dashboard);
