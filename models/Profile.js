@@ -43,6 +43,9 @@ const ProfileSchema = new mongoose.Schema({
             type: String
         }
     },
+    qoute: {
+        type: Object
+    },
     date: {
         type: Date,
         default: Date.now

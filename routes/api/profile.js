@@ -48,7 +48,7 @@ router.post('/', [
         return res.status(400).json({errors: errors.array()})
     }
 
-    const {address, youtube, twitter, facebook, linkedin, instagram} = req.body;
+    const {address, youtube, twitter, facebook, linkedin, instagram, qoute} = req.body;
 
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -64,6 +64,7 @@ router.post('/', [
     if(linkedin) profileFields.social.linkedin = linkedin;
     if(instagram) profileFields.social.instagram = instagram;
 
+    profileFields.qoute = qoute;
 
     try{
         let profile = await Profile.findOne({ user: req.user.id });

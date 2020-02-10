@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {createProfile} from '../../actions/profileActions';
 
-const CreateProfile = ({createProfile, history}) =>{
+const CreateProfile = ({createProfile, history, user}) =>{
     const [formData, setFormData] = useState({
         address_1: '',
         address_2: '',
@@ -37,6 +37,8 @@ const CreateProfile = ({createProfile, history}) =>{
 
     const onSubmit = e =>{
         e.preventDefault();
+        formData['first_name'] = user.first_name;
+        formData['last_name'] = user.last_name;
         createProfile(formData, history);
     };
 
@@ -111,7 +113,12 @@ const CreateProfile = ({createProfile, history}) =>{
 };
 
 CreateProfile.propTypes ={
-    createProfile: PropTypes.func.isRequired
+    createProfile: PropTypes.func.isRequired,
+    user: PropTypes.object
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+const mapStateToProps = state => ({
+    user:  state.auth.user,
+});
+
+export default connect(mapStateToProps, { createProfile })(withRouter(CreateProfile));
