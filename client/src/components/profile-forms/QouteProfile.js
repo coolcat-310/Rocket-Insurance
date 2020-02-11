@@ -16,8 +16,6 @@ const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history})
     const rantingAddress = quote?.rating_address;
     const policyHolder = quote?.policy_holder;
     const variableOptions = quote?.variable_options;
-    const variableSelections = quote?.variable_selections;
-    const premium = quote?.premium;
     const statusOption = quote?.statusOption;
     const asteroidOption = quote?.asteroidOption;
 
@@ -30,18 +28,11 @@ const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history})
         });
     }, []);
 
-    console.log(formData);
-    // console.log(qouteId, rating_address, policy_holder, variable_options, postal, variable_selections, premium);
-    console.log(quote);
-    console.log(qouteId);
-    console.log(rantingAddress);
-    console.log(policyHolder);
-    console.log(variableOptions);
-    console.log(variableSelections);
-    console.log(premium);
-
     const createOptions = value => <option key={value}>{value}</option>;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
+    const onSubmit = e =>{
+        e.preventDefault();
+    };
 
     return (
         <Fragment>
@@ -52,38 +43,35 @@ const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history})
                 <i className="fas fa-industry"></i> Select your premium options
             </p>
             <span className=""><b>Qoute ID: </b>{qouteId}</span>
-            <div className="container">
-                <div className="row mb-2">
-                    <span className="m-1"><b>Name: </b> {policyHolder?.first_name + ' ' + policyHolder?.last_name}</span>
+            <form className="form" onSubmit={e => onsubmit(e)}>
+                <div className="form-group">
+                    <small>Name</small>
+                    <input type="text" placeholder="full-name" value={policyHolder?.first_name + ' ' + policyHolder?.last_name} disabled/>
                 </div>
-                <div className="row mb-2">
-                    <span className="m-1"><b>Address:</b> {rantingAddress?.line_1 + ' ' + (rantingAddress?.line_2 || '')
-                    + ' ' + rantingAddress?.city + ', ' + rantingAddress?.region + ' ' + rantingAddress?.postal}</span>
-
+                <div className="form-group">
+                    <small>Address</small>
+                    <input type="text" placeholder="address" value={rantingAddress?.line_1 + ' ' + (rantingAddress?.line_2 || '')
+                            + ' ' + rantingAddress?.city + ', ' + rantingAddress?.region + ' ' + rantingAddress?.postal} disabled/>
                 </div>
-                <form>
-                    <div className="row mb-2">
-                        <div className="form-group">
-                            <select name="statusOption" value={statusOption}  onChange={(e) => onChange(e)}>
-                                <option value="">{variableOptions?.deductible?.title}</option>
-                                {variableOptions?.deductible?.values.map(createOptions)}
-                            </select>
-                            <small className="form-text">{variableOptions?.deductible?.description}</small>
-                        </div>
-                    </div>
-                    <div className="row mb-2">
-                    <div className="form-group">
-                        <select name="asteroidOption" value={asteroidOption}  onChange={(e) => onChange(e)}>
-                            <option value="">{variableOptions?.asteroid_collision?.title}</option>
-                            {variableOptions?.asteroid_collision?.values.map(createOptions)}
-                        </select>
-                        <small className="form-text">{variableOptions?.asteroid_collision?.description}</small>
-                    </div>
-            </div>
-                </form>
-            </div>
-
+                <div className="form-group">
+                    <select name="statusOption" value={statusOption}  onChange={(e) => onChange(e)}>*/}
+                        <option value="">{variableOptions?.deductible?.title}</option>
+                        {variableOptions?.deductible?.values.map(createOptions)}
+                    </select>
+                    <small className="form-text">{variableOptions?.deductible?.description}</small>
+                </div>
+                <div className="form-group">
+                    <select name="asteroidOption" value={asteroidOption}  onChange={(e) => onChange(e)}>*/}
+                        <option value="">{variableOptions?.asteroid_collision?.title}</option>
+                        {variableOptions?.asteroid_collision?.values.map(createOptions)}
+                    </select>
+                    <small className="form-text">{variableOptions?.asteroid_collision?.description}</small>
+                </div>
+                <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
+            </form>
         </Fragment>
+
+
     )
 
 };
