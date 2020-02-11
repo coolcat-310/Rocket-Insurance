@@ -57,6 +57,13 @@ img {
   margin-bottom: 1rem;
 }
 
+.medium {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -124,6 +131,10 @@ img {
 }
 .my-3 {
   margin: 3rem 0;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }
 
 .btn {
