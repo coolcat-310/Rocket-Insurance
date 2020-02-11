@@ -54,20 +54,21 @@ const CreateProfile = ({createProfile, history, user}) =>{
             <small>* = required field</small>
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
-                    <input type="text" placeholder="Address" name="address_1" value={address_1} onChange={e=>onChange(e)}/>
+                    <input type="text" placeholder="Address*" name="address_1" value={address_1} onChange={e=>onChange(e)}/>
+
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Address cont." name="address_2" value={address_2} onChange={e=>onChange(e)}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="City" name="city" value={city} onChange={e=>onChange(e)}/>
+                    <input type="text" placeholder="City*" name="city" value={city} onChange={e=>onChange(e)}/>
 
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Region" name="region" value={region} onChange={e=>onChange(e)}/>
+                    <input type="text" placeholder="Region*" name="region" value={region} onChange={e=>onChange(e)}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Postal" name="postal" value={postal} onChange={e=>onChange(e)}/>
+                    <input type="text" placeholder="Postal*" name="postal" value={postal} onChange={e=>onChange(e)}/>
                 </div>
 
                 <div className="my-2">

@@ -33,7 +33,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
                 'Access-Control-Allow-Origin': '*'
         }
         };
-        console.warn(formData);
+
         const addressObj = {
           "first_name": formData.first_name,
           "last_name": formData.last_name,
@@ -75,15 +75,15 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             history.push('/dashboard');
         }
     }catch (err) {
-        const errors = err.response?.data?.errors;
+        const errors = err.response?.data?.errors?.address;
         if(errors){
-            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+            dispatch(setAlert("missing value", 'danger'));
         }
 
         dispatch({
             type: PROFILE_ERROR,
             payload: {
-                msg: err.response.statusText,
+                msg: 'Oops Try Again',
                 status: err.response.status
             }
         });
