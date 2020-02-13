@@ -24,6 +24,8 @@ https://fierce-island-46786.herokuapp.com/
 
 ### Front-End
 
+I decided to you react-redux for a number of reasons. First being obvious I want to my proficiency in the library and the ability to translate the requirements into an actual product. Second, I wanted to use a library with a state management system. Having a consolated state object has significantly made data management more feasible.  And lastly, I want to deploy a Single Page Application (SPA), keeping in touch with modern trends. 
+
 ![1_QERgzuzphdQz4e0fNs1CFQ](https://user-images.githubusercontent.com/16736074/74459985-0ad82680-4e41-11ea-83c8-f2be859772c8.gif)
 
 ### Installing
