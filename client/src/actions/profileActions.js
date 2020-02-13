@@ -2,7 +2,10 @@ import axios from 'axios';
 import {setAlert} from './alertActions';
 import {GET_PROFILE, PROFILE_ERROR } from './types';
 
-// GET Current user profile
+/**
+ * @desc Gets Current user's information
+ * @returns {function(...[*]=)}
+ */
 export const getCurrentProfile = () => async dispatch =>{
     try {
         const res = await axios.get('/api/profile/me');
@@ -23,7 +26,13 @@ export const getCurrentProfile = () => async dispatch =>{
 };
 
 
-// Create or update a profile
+/**
+ * @desc Create a new Profile
+ * @param {Object} formData
+ * @param {*} history
+ * @param {boolean} edit
+ * @returns {function(...[*]=)}
+ */
 export const createProfile = (formData, history, edit = false) => async dispatch => {
     try{
         const config = {

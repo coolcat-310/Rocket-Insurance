@@ -11,8 +11,6 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
         getCurrentProfile()
     }, [getCurrentProfile]);
 
-
-
     return loading && profile === null ? <Spinner /> :(
         <Fragment>
             <h1 className="large text-primary">Dashboard</h1>
@@ -43,8 +41,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
 Dashboard.propTypes ={
     getCurrentProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    // profile: PropTypes.object.isRequired,
-    // deleteAccount: PropTypes.func.isRequired
+    profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state =>({

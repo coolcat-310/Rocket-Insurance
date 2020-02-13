@@ -3,6 +3,10 @@ import { setAlert } from "./alertActions";
 import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, CLEAR_PROFILE} from "./types";
 import setAuthToken from '../utils/setAuthToken';
 
+/**
+ * @desc Retrives User's profile based on their JWT
+ * @returns {function(...[*]=)}
+ */
 export const loadUser = () => async dispatch => {
 
     // Save the token to the axios header:  x-auth-token
@@ -26,7 +30,14 @@ export const loadUser = () => async dispatch => {
     }
 };
 
-// Register User
+/**
+ * @desc Creates a new account
+ * @param {string} first_name
+ * @param {string} last_name
+ * @param {string} email
+ * @param {string} password
+ * @returns {function(...[*]=)}
+ */
 export const register = ({ first_name, last_name, email, password }) => async dispatch=>{
     const config = {
         headers: {
@@ -57,7 +68,12 @@ export const register = ({ first_name, last_name, email, password }) => async di
     }
 };
 
-// Login User
+/**
+ * @desc Login User
+ * @param {string} email
+ * @param {string} password
+ * @returns {function(...[*]=)}
+ */
 export const login = ( email, password ) => async dispatch => {
     const config = {
         headers: {
@@ -90,7 +106,10 @@ export const login = ( email, password ) => async dispatch => {
 };
 
 
-//LOGOUT
+/**
+ * @desc Logout User
+ * @returns {function(...[*]=)}
+ */
 export const logout = () => dispatch =>{
     dispatch({
         type: CLEAR_PROFILE
