@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {getCurrentProfile} from "../../actions/profileActions";
 
-const QouteProfile = ({profile: {profile: {qoute: {data}}, loading}, getCurrentProfile, history}) =>{
+const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history}) =>{
     const [formData, setFormData] = useState({
         qouteObj: {},
         statusOption: '',
-        asteroidOption: ''
+        asteroidOption: '',
+        premium: ''
     });
 
     const {quote} = formData.qouteObj;
+    const premium = quote?.premium;
     const qouteId = quote?.quoteId;
     const rantingAddress = quote?.rating_address;
     const policyHolder = quote?.policy_holder;
@@ -19,14 +21,16 @@ const QouteProfile = ({profile: {profile: {qoute: {data}}, loading}, getCurrentP
     const statusOption = quote?.statusOption;
     const asteroidOption = quote?.asteroidOption;
 
+
     useEffect(()=>{
         getCurrentProfile();
         setFormData({
-            qouteObj       : loading || !data ? {} : data,
+            qouteObj       : loading || !profile.qoute.data ? {} : profile.qoute.data,
             statusOption : '',
-            asteroidOption: ''
+            asteroidOption: '',
+            premium: loading || !profile.premium ? '' : profile.premium
         });
-    }, [getCurrentProfile, loading, data]);
+    }, [getCurrentProfile, loading, profile]);
 
     const createOptions = value => <option key={value}>{value}</option>;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
@@ -66,6 +70,10 @@ const QouteProfile = ({profile: {profile: {qoute: {data}}, loading}, getCurrentP
                         {variableOptions?.asteroid_collision?.values.map(createOptions)}
                     </select>
                     <small className="form-text">{variableOptions?.asteroid_collision?.description}</small>
+                </div>
+                <div className="form-group">
+                    <small>Premium</small>
+                    <input type="text" placeholder="premium" value={premium} disabled/>
                 </div>
                 <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
             </form>
