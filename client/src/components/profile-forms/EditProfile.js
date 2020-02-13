@@ -48,7 +48,8 @@ const EditProfile = ({profile: {profile, loading}, createProfile, history, user,
             youtube     : loading || !profile.social ? '' : profile.social.youtube,
             instagram   : loading || !profile.social ? '' : profile.social.instagram
         });
-    }, []);
+    }, [getCurrentProfile, loading, profile?.address?.city, profile?.address?.line_1, profile?.address?.line_2,
+        profile?.address?.region, profile?.address?.postal, profile?.social]);
 
     // update form on change
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});

@@ -20,7 +20,14 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
                 <i className="fas fa-user" />{` Welcome ${user && (user.first_name +' ' +user.last_name) }`}
             </p>
             {profile !== null ? (
-                <DashboardActions/>
+                <Fragment>
+                    <DashboardActions/>
+                    <div className="ui two column doubling stackable grid container">
+                        <div className="column">
+                           Click on View Qoute for more information about your premium.
+                        </div>
+                    </div>
+                </Fragment>
                 ) : (
                 <Fragment>
                     <p>You have not yet setup a profile, please add some info</p>

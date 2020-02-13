@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {getCurrentProfile} from "../../actions/profileActions";
 
-const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history}) =>{
+const QouteProfile = ({profile: {profile: {qoute: {data}}, loading}, getCurrentProfile, history}) =>{
     const [formData, setFormData] = useState({
         qouteObj: {},
         statusOption: '',
@@ -22,11 +22,11 @@ const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history})
     useEffect(()=>{
         getCurrentProfile();
         setFormData({
-            qouteObj       : loading || !profile.qoute.data ? {} : profile.qoute.data,
+            qouteObj       : loading || !data ? {} : data,
             statusOption : '',
             asteroidOption: ''
         });
-    }, []);
+    }, [getCurrentProfile, loading, data]);
 
     const createOptions = value => <option key={value}>{value}</option>;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
@@ -43,7 +43,7 @@ const QouteProfile = ({profile: {profile, loading}, getCurrentProfile, history})
                 <i className="fas fa-industry"></i> Select your premium options
             </p>
             <span className=""><b>Qoute ID: </b>{qouteId}</span>
-            <form className="form" onSubmit={e => onsubmit(e)}>
+            <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <small>Name</small>
                     <input type="text" placeholder="full-name" value={policyHolder?.first_name + ' ' + policyHolder?.last_name} disabled/>

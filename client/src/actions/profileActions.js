@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {setAlert} from './alertActions';
 import {GET_PROFILE, PROFILE_ERROR } from './types';
-import {header} from "express-validator";
 
 // GET Current user profile
 export const getCurrentProfile = () => async dispatch =>{
@@ -71,9 +70,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 
         dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
-        if(!edit){
-            history.push('/dashboard');
-        }
+        history.push('/qoute-profile');
     }catch (err) {
         const errors = err.response?.data?.errors?.address;
         if(errors){
