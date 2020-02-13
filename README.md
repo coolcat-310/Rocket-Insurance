@@ -5,6 +5,7 @@ Rocket Insurance is intended for prospective clients who are interested in their
 
 To use the application, users would have to register for an account. Next, the user will have to input their address, and only then will Rocket Insurance will provide a quote. 
 
+<img width="1645" alt="Screen Shot 2020-02-12 at 11 23 52 PM" src="https://user-images.githubusercontent.com/16736074/74410803-c885f980-4dee-11ea-9fb1-1380a868acb4.png">
 
 
 ## Live Link
