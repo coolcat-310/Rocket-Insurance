@@ -21,9 +21,6 @@ https://fierce-island-46786.herokuapp.com/
  
  ![Screen Shot 2020-02-12 at 12 08 22 PM](https://user-images.githubusercontent.com/16736074/74373518-7d89c900-4d91-11ea-9fe2-6dc48c0f60a7.png)
 
-```
-Give examples
-```
 
 ### Installing
 
