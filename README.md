@@ -51,6 +51,13 @@ The following command will run both the client and server. The client would roun
 npm run dev
 ```
 
+Make sure that your browser enable CORS, there has been instances where the API request get rejected.
+
+Option - Running Chrome without CORS
+```
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+```  
+
 ## Built With
 
 * Heroku
