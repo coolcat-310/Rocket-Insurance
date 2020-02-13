@@ -30,6 +30,8 @@ I decided to you react-redux for a number of reasons. First being obvious I want
 
 The requirement asks for only two pages, but I felt more was needed, especially if the user wanted to save their premium options. I decided to incorporate a server and a database as Express and Mongo respectfully.  Like Django uses Object-relational-mapping (ORM) to interact with its database. I used Mongoose, which provides object mapping and query capabilities with MongoDB. Using Mongoose allows me to structure what a user profile entails (i.e., Address, and Quote) and execute CRUD operations. 
 
+Furthermore, as a security measure, I incorporated a middleware to validate the authentic user in the protected routes. I used BcryptJS and JSON Web Tokens to both stores the user's credentials and maintained sessions in the browser. 
+
 ### Installing
 
 The repository is located at https://github.com/coolcat-310/Rocket-Insurance. 
