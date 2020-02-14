@@ -71,6 +71,27 @@ open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args
 
 * Heroku
 
+### Demo
+
+The landing page 
+<img width="1645" alt="Screen Shot 2020-02-12 at 11 23 52 PM" src="https://user-images.githubusercontent.com/16736074/74494337-9d9cb380-4e89-11ea-82e0-ad496e17bae7.png">
+
+Registering New User
+<img width="1664" alt="Screen Shot 2020-02-13 at 5 48 39 PM" src="https://user-images.githubusercontent.com/16736074/74494603-5236d500-4e8a-11ea-93a7-14846f423125.png">
+
+Login Page
+<img width="1658" alt="Screen Shot 2020-02-13 at 6 01 02 PM" src="https://user-images.githubusercontent.com/16736074/74494788-d38e6780-4e8a-11ea-9a42-b1a213e82267.png">
+
+Dashboard page
+<img width="1668" alt="Screen Shot 2020-02-13 at 5 49 04 PM" src="https://user-images.githubusercontent.com/16736074/74494649-6ed30d00-4e8a-11ea-83b2-1459f93a3369.png">
+
+Profile Page 
+<img width="1654" alt="Screen Shot 2020-02-13 at 5 50 48 PM" src="https://user-images.githubusercontent.com/16736074/74494693-8a3e1800-4e8a-11ea-87ec-2cba13db9de7.png">
+
+Quote Page
+<img width="1662" alt="Screen Shot 2020-02-13 at 5 51 13 PM" src="https://user-images.githubusercontent.com/16736074/74494745-afcb2180-4e8a-11ea-8a5d-23796ff310cd.png">
+
+
 ## Authors
 
 * **Juan Navarrete** - navarretejuan09@gmail.com
