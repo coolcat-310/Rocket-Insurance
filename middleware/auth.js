@@ -1,7 +1,13 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-
+/**
+ * @desc Middleware to verify is user is authenticated to proceed to the following function
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|Promise<any>}
+ */
 module.exports = function(req, res, next){
     // Get token from header
     const token = req.header('x-auth-token');

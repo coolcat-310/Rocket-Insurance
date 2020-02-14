@@ -20,10 +20,8 @@ router.get('/me', auth, async (req, res)=> {
         if(!profile){
             return res.status(400).json({ msg: 'There is no profile for this user'})
         }
-
         res.status(200).json(profile);
     }catch (e) {
-        console.error(err.message);
         res.status(500).send('Server Error');
     }
 });
@@ -76,7 +74,6 @@ router.post('/', [
                 { $set : profileFields},
                 { new: true}
             );
-
             return res.json(profile);
         }
 
@@ -86,7 +83,6 @@ router.post('/', [
         await profile.save();
         res.status(201).json(profile);
     }catch(e){
-        console.error(e.message);
         res.status(500).send('Server Error')
     }
 });
@@ -100,7 +96,6 @@ router.get('/', async (req, res)=>{
         const profiles = await Profile.find().populate('user', ['first_name', 'last_name']);
         res.json(profiles);
     }catch (e) {
-        console.error(e.message);
         res.status(500).send('Server Error');
     }
 });
@@ -119,7 +114,7 @@ router.get('/user/:user_id', async (req, res)=>{
         }
         res.json(profile);
     }catch (e) {
-        console.error(e.message);
+
         if(e.kind == 'ObjectId'){
             return res.status(404).json({ msg: 'Profile not found'});
         }
@@ -135,15 +130,13 @@ router.get('/user/:user_id', async (req, res)=>{
 
 router.delete('/', auth,async (req, res)=>{
     try {
-        // Remove User's post
-        // await Post.deleteMany({ user: req.user.id });
         // Remove profile
         await Profile.findOneAndRemove({user: req.user.id});
         // Remove user
         await User.findOneAndRemove({_id: req.user.id});
         res.json({msg: 'User Deleted'});
     }catch (e) {
-        console.error(e.message);
+
         res.status(500).send('Server Error');
     }
 });

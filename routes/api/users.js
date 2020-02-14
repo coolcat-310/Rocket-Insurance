@@ -5,10 +5,11 @@ const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const config = require('config');
 const User = require('../../models/User');
-
-//@route    POST api/users
-//@desc     Register User
-//@access   Public
+/**
+ * @desc     Register User
+ * @route    POST api/users
+ * @access   Public
+ */
 router.post('/',  [
     check('first_name', 'First name is required').not().isEmpty(),
     check('last_name', 'Last name is required').not().isEmpty(),
@@ -54,12 +55,8 @@ router.post('/',  [
                 res.status(201).json({ token });
             });
         } catch (e) {
-            console.error(e.message);
             res.status(500).send('Server Error');
         }
-
-
-
 });
 
 module.exports = router;
