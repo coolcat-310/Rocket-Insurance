@@ -7,7 +7,6 @@ To use the application, users would have to register for an account. Next, the u
 
 <img width="1645" alt="Screen Shot 2020-02-12 at 11 23 52 PM" src="https://user-images.githubusercontent.com/16736074/74410803-c885f980-4dee-11ea-9fb1-1380a868acb4.png">
 
-
 ## Live Link
 
 https://fierce-island-46786.herokuapp.com/
@@ -20,8 +19,18 @@ https://fierce-island-46786.herokuapp.com/
  * JWT as Authentication
  * MongoDB/Mongoose as Object Modeling and Database Management 
  
- ![Screen Shot 2020-02-12 at 12 08 22 PM](https://user-images.githubusercontent.com/16736074/74373518-7d89c900-4d91-11ea-9fe2-6dc48c0f60a7.png)
 
+### Front-End
+
+I decided to you react-redux for a number of reasons. First being obvious I want to my proficiency in the library and the ability to translate the requirements into an actual product. Second, I wanted to use a library with a state management system. Having a consolated state object has significantly made data management more feasible.  And lastly, I want to deploy a Single Page Application (SPA), keeping in touch with modern trends. 
+
+![1_QERgzuzphdQz4e0fNs1CFQ](https://user-images.githubusercontent.com/16736074/74459985-0ad82680-4e41-11ea-83c8-f2be859772c8.gif)
+
+## Back-End
+
+The requirement asks for only two pages, but I felt more was needed, especially if the user wanted to save their premium options. I decided to incorporate a server and a database as Express and Mongo respectfully.  Like Django uses Object-relational-mapping (ORM) to interact with its database. I used Mongoose, which provides object mapping and query capabilities with MongoDB. Using Mongoose allows me to structure what a user profile entails (i.e., Address, and Quote) and execute CRUD operations. 
+
+Furthermore, as a security measure, I incorporated a middleware to validate the authentic user in the protected routes. I used BcryptJS and JSON Web Tokens to both stores the user's credentials and maintained sessions in the browser. 
 
 ### Installing
 
